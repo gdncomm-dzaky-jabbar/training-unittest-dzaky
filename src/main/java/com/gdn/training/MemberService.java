@@ -22,4 +22,5 @@ public class MemberService {
     member.setSuspended(true);
     memberRepository.save(member);
   }
+
 }
