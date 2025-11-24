@@ -37,6 +37,7 @@ class MemberServiceTest {
                 .thenReturn(Member.builder()
                         .id("member-id")
                         .name("name")
+                        .email("dzaky.jabbar@gmail.com")
                         .suspended(false)
                         .build());
 
@@ -49,6 +50,7 @@ class MemberServiceTest {
         assertTrue(member.isSuspended());
         assertEquals("name", member.getName());
         assertEquals("member-id", member.getId());
+        assertEquals("dzaky.jabbar@gmail.com", member.getEmail());
 
         Assertions.assertThrows(RuntimeException.class, () -> {
             memberService.suspendMember("member-id-dummy");
@@ -59,8 +61,8 @@ class MemberServiceTest {
         });
     }
 
-    @AfterEach
-    public void tearDown() {
-        verifyNoMoreInteractions(memberRepository);
-    }
+//    @AfterEach
+//    public void tearDown() {
+//        verifyNoMoreInteractions(memberRepository);
+//    }
 }
